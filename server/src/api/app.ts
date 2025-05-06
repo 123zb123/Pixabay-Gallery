@@ -19,12 +19,6 @@ app.get('/', (req: Request, res: Response) => {
         .send(`Welcome to the Image Processing API😍! (user from ${req.ip})`);
 });
 
-app.get('*', (req: Request, res: Response) => {
-    res
-        .status(status.NOT_FOUND)
-        .send('API endpoint Not Found!');
-});
-
 app.use('/api/images', imagesRoutes);
 
 export default app;
