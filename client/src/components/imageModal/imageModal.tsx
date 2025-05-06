@@ -1,3 +1,4 @@
+import { CLOSE_MODAL_BUTTON } from "../../constants/constants";
 import { modalStyle, overlayStyle } from "./imageModalStyles";
 import { useImageModal } from "./useImageModal";
 
@@ -15,7 +16,7 @@ export const ImageModal = () => {
           style={{ width: "100%" }}
         />
         <div>{imageProperties}</div>
-        <button onClick={closeModal}>Close</button>
+        <button onClick={closeModal}>{CLOSE_MODAL_BUTTON}</button>
       </div>
     </div>
   );

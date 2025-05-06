@@ -2,6 +2,11 @@ import { useDispatch, useSelector } from "react-redux";
 import type { ImagesState } from "../../types/imagesTypes";
 import { setPage } from "../../store/imagesSlice";
 import { containerStyle } from "./paginationButtonsStyles";
+import {
+  NEXT_BUTTON,
+  PAGE_NUMBER_TITLE,
+  PREV_BUTTON,
+} from "../../constants/constants";
 
 export const PaginationButtons = () => {
   const dispatch = useDispatch();
@@ -18,10 +23,12 @@ export const PaginationButtons = () => {
   return (
     <div style={containerStyle}>
       <button onClick={handlePrev} disabled={page === 1}>
-        Prev
+        {PREV_BUTTON}
       </button>
-      <span style={{ margin: "0 10px" }}>Page {page}</span>
-      <button onClick={handleNext}>Next</button>
+      <span style={{ margin: "0 10px" }}>
+        {PAGE_NUMBER_TITLE} {page}
+      </span>
+      <button onClick={handleNext}>{NEXT_BUTTON}</button>
     </div>
   );
 };

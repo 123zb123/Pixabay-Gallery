@@ -3,7 +3,7 @@ import { setCategory } from "../../store/imagesSlice";
 import type { ImagesState } from "../../types/imagesTypes";
 import { containerStyle } from "./categorySelectorStyles";
 import type { ChangeEvent } from "react";
-import { CATEGORIES_LIST } from "../../constants/constants";
+import { CATEGORIES_LIST, CATEGORY_SELECTOR_TITLE } from "../../constants/constants";
 
 export const CategorySelector = () => {
   const dispatch = useDispatch();
@@ -15,7 +15,7 @@ export const CategorySelector = () => {
 
   return (
     <div style={containerStyle}>
-      <label htmlFor="category">Category: </label>
+      <label htmlFor="category">{CATEGORY_SELECTOR_TITLE}</label>
       <select id="category" value={selectedCategory} onChange={handleChange}>
         {CATEGORIES_LIST.map((cat) => (
           <option key={cat} value={cat}>
