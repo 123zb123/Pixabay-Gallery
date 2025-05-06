@@ -13,12 +13,25 @@ It fetches images from a custom Node.js server (based on the Pixabay API), categ
 ## 🧰 Tech Stack
 
 - React + Vite
-- Redux (classic) with @reduxjs/toolkit
+- Redux (classic)
 - TypeScript
 - Axios for HTTP requests
 
 ## 📦 Installation
 
 ```bash
+# Clone the repository
+git clone https://github.com/123zb123/Pixabay-Gallery.git
+cd Pixabay-Gallery
+
+# Install and run the backend
+cd server
 npm install
 npm run dev
+# The backend will run at http://localhost:3000
+
+# In a new terminal, go to the client
+cd ../client
+npm install
+npm run dev
+# The frontend will run at http://localhost:5173
