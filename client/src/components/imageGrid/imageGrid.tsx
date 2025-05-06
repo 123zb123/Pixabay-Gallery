@@ -17,7 +17,7 @@ export const ImageGrid = () => {
         <img
           key={image.id}
           src={image.webformatURL}
-          alt=""
+          alt={image.tags}
           style={imageStyle}
           onClick={() => handleClick(image)}
         />
@@ -25,4 +25,3 @@ export const ImageGrid = () => {
     </div>
   );
 };
-

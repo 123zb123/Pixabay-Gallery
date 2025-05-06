@@ -1,4 +1,12 @@
-
+export const PROPERTIES_TO_DISPLAY_IN_MODAL = [
+    "Id",
+    "Tags",
+    "Views",
+    "Downloads",
+    "Collections",
+    "Likes",
+    "Comments"
+];
 
 export const CATEGORIES_LIST = [
     "Nature",
