@@ -4,8 +4,8 @@ import { PixabayImage } from '../../types/imagesTypes';
 import { sortImagesById } from '../../utils/imagesUtils';
 dotenv.config();
 
-const API_KEY = process.env.PIXABAY_API_KEY || '';
-const API_URL = process.env.PIXABAY_API_URL || 'https://pixabay.com/api/';
+const PIXABAY_API_KEY = process.env.PIXABAY_API_KEY || '';
+const PIXABAY_API_URL = process.env.PIXABAY_API_URL || 'https://pixabay.com/api/';
 
 interface Props {
     category: string;
@@ -13,12 +13,12 @@ interface Props {
     imagesPerPage: number;
 }
 export const fetchImages = async ({ category, imagesPerPage, page }: Props) => {
-    const response = await axios.get(`${API_URL}`, {
+    const response = await axios.get(`${PIXABAY_API_URL}`, {
         params: {
             page: page,
             q: category,
             image_type: 'photo',
-            key: API_KEY,
+            key: PIXABAY_API_KEY,
             per_page: imagesPerPage,
         }
     })

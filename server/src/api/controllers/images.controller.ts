@@ -1,9 +1,15 @@
 import { Request, Response } from 'express';
 import { fetchImages } from '../services/images.service';
+import status from 'http-status';
+import { DEFAULT_CATEGORY_TO_FETCH, DEFAULT_IMAGES_PER_PAGE_TO_FETCH, DEFAULT_PAGE_TO_FETCH } from '../../constants/constants';
 
 export const getImages = async (req: Request, res: Response) => {
 
-    const { category = 'nature', page = '1', imagesPerPage = '9' } = req.query;
+    const {
+        category = DEFAULT_CATEGORY_TO_FETCH,
+        page = DEFAULT_PAGE_TO_FETCH,
+        imagesPerPage = DEFAULT_IMAGES_PER_PAGE_TO_FETCH
+    } = req.query;
 
     try {
         const data = await fetchImages({
@@ -11,8 +17,15 @@ export const getImages = async (req: Request, res: Response) => {
             page: parseInt(page as string),
             imagesPerPage: parseInt(imagesPerPage as string),
         });
-        res.status(200).json(data);
+        res
+            .status(status.OK)
+            .json(data);
     } catch (error) {
-        res.status(500).json({ message: 'Server error' });
+        res
+            .status(status.INTERNAL_SERVER_ERROR)
+            .json({
+                message: 'Server error',
+                error: error.message,
+            });
     }
 };
