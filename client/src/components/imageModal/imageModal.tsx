@@ -18,7 +18,7 @@ export const ImageModal = () => {
     if (PROPERTIES_TO_DISPLAY_IN_MODAL.includes(keyToDIsplayInModal)) {
       return (
         <p key={key}>
-          <strong>{keyToDIsplayInModal}:</strong> {value}
+          <strong>{keyToDIsplayInModal}:</strong>{value}
         </p>
       );
     }
